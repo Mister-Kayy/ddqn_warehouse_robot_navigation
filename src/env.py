@@ -3,8 +3,8 @@ from __future__ import annotations
 from collections import deque
 import numpy as np
 import gymnasium as gym
+import minigrid
 from gymnasium import spaces
-
 
 class WarehouseRewardWrapper(gym.Wrapper):
     """Replace MiniGrid's built-in reward with the project's declared reward.
@@ -39,7 +39,7 @@ class WarehouseRewardWrapper(gym.Wrapper):
 
 
 class SymbolicFrameStack(gym.Wrapper):
-    
+
     """Stack normalized symbolic MiniGrid images and append direction one-hot.
 
     MiniGrid images encode each visible tile by (object, colour, state). Four
