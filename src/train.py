@@ -50,7 +50,9 @@ def train_one(config, algorithm: str, seed: int, root: str | Path):
             action = agent.act(obs, epsilon=epsilon)
             next_obs, reward, terminated, truncated, info = env.step(action)
             done = terminated or truncated
-            replay.add(obs, action, reward, next_obs, done)
+            # Bootstrap flag must be `terminated` only. Truncation is an
+            # artificial time limit, not a real terminal state (Pardo et al., 2018).
+            replay.add(obs, action, reward, next_obs, terminated)
             obs = next_obs
             ep_return += reward
             ep_steps += 1
