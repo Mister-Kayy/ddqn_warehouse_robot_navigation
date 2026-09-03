@@ -1,0 +1,28 @@
+{
+  "env_id": "MiniGrid-Dynamic-Obstacles-8x8-v0",
+  "frame_stack": 4,
+  "total_steps": 100000,
+  "max_episode_steps": 256,
+  "gamma": 0.99,
+  "learning_rate": 0.0005,
+  "batch_size": 64,
+  "replay_capacity": 50000,
+  "learning_starts": 2000,
+  "train_frequency": 4,
+  "target_update_frequency": 1000,
+  "epsilon_start": 1.0,
+  "epsilon_end": 0.05,
+  "epsilon_decay_steps": 60000,
+  "hidden_dim": 256,
+  "gradient_clip_norm": 10.0,
+  "success_reward": 10.0,
+  "collision_penalty": -10.0,
+  "step_penalty": -0.01,
+  "train_seeds": [
+    42,
+    123,
+    2026
+  ],
+  "eval_episodes": 30,
+  "eval_seed_start": 10000
+}
